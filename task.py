@@ -53,8 +53,9 @@ class Record:
 
     def add_phone(self, phone):
         new_phone = Phone(phone)
-        if new_phone not in self.phones:
+        if new_phone.value not in [p.value for p in self.phones]:
             self.phones.append(new_phone)
+
 
     def remove_phone(self, phone):
         for p in self.phones:
