@@ -65,13 +65,13 @@ class Record:
         return f"Телефон {phone} не знайдено"        
 
     def edit_phone(self, old_phone, new_phone):
-        if not Phone.validate(new_phone):
-            raise ValueError("Некоректний формат нового номера телефону")
-        for i, p in enumerate(self.phones):
-            if p.value == old_phone:
-                self.phones[i] = Phone(new_phone)
-                return f"Телефон {old_phone} змінено на {new_phone}"
-        return f"Телефон {old_phone} не знайдено"
+    if not Phone.validate(new_phone):
+        raise ValueError("Некоректний формат нового номера телефону")
+    for i, p in enumerate(self.phones):
+        if p.value == old_phone:
+            self.phones[i] = Phone(new_phone)
+            return f"Телефон {old_phone} змінено на {new_phone}"
+    raise ValueError(f"Телефон {old_phone} не знайдено")
     
     def find_phone(self, phone):
         for p in self.phones:
